@@ -21,7 +21,7 @@ const Water = () => {
   const {
     TEXTURE_SIZE, COLOR_BASE_FAR, COLOR_BASE_NEAR, WATER_LEVEL, WAVE_SPEED, WAVE_AMPLITUDE
   } = useControls("Water", {
-    COLOR_BASE_NEAR: { value: "#00fccd", label: "Near" },
+    COLOR_BASE_NEAR: { value: "#12c1ff", label: "Near" },
     COLOR_BASE_FAR: { value: "#00b1fc", label: "Far" },
     WATER_LEVEL: { value: waterLevel, min: 0.5, max: 5.0, step: 0.1, label: "Water Level" },
     WAVE_SPEED: { value: waveSpeed, min: 0.5, max: 2.0, step: 0.1, label: "Wave Speed" },

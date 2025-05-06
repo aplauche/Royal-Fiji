@@ -37,7 +37,7 @@ export const Experience = () => {
       />
 
       <color attach="background" args={[BACKGROUND]} />
-      <fog attach="fog" args={[BACKGROUND, 120, 150]} />
+      <fog attach="fog" args={[BACKGROUND, 60, 120]} />
 
       <Scene />
     </>

@@ -12,11 +12,16 @@ import CustomShaderMaterial from "three-custom-shader-material"
 
 import vertexShader from "./shaders/vertex.glsl"
 import fragmentShader from "./shaders/fragment.glsl"
+import { useFrame } from '@react-three/fiber'
 
 export function Terrain(props) {
   const { nodes } = useGLTF('../../../public/models/terrain.glb')
 
   const waterLevel = useStore(state => state.waterLevel)
+
+  const waveSpeed = useStore((state) => state.waveSpeed)
+  const waveAmplitude = useStore((state) => state.waveAmplitude)
+  const foamDepth = useStore((state) => state.foamDepth)
 
   // Interactive color parameters
   const { SAND_BASE_COLOR, GRASS_BASE_COLOR, UNDERWATER_BASE_COLOR } =
@@ -56,6 +61,12 @@ export function Terrain(props) {
     waterLevel
   ])
 
+  // Update shader time
+  useFrame(({ clock }) => {
+    if (!materialRef.current) return
+    materialRef.current.uniforms.uTime.value = clock.getElapsedTime()
+  })
+
   return (
     <group {...props} dispose={null}>
       <mesh 
@@ -73,7 +84,10 @@ export function Terrain(props) {
             uTime: { value: 0 },
             uGrassColor: { value: GRASS_COLOR },
             uUnderwaterColor: { value: UNDERWATER_COLOR },
-            uWaterLevel: { value: waterLevel }
+            uWaterLevel: { value: waterLevel },
+            uWaveSpeed: { value: waveSpeed },
+            uWaveAmplitude: { value: waveAmplitude },
+            uFoamDepth: { value: foamDepth },
           }}
         />
       </mesh>

@@ -10,7 +10,7 @@ function App() {
     <>
           <Canvas camera={{ position: [30, 10, -30], fov: 35 }} shadows>
             <Experience />
-            <AdaptiveDpr pixelated />
+            {/* <AdaptiveDpr pixelated /> */}
           </Canvas>
     </>
   )
