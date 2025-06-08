@@ -2,7 +2,7 @@ import { create } from "zustand"
 
 export const useStore = create((set) => ({
   ready: false,
-  waterLevel: 1.1,
+  waterLevel: 0.5,
   waveSpeed: 1.2,
   waveAmplitude: 0.1,
   foamDepth: 0.05,
