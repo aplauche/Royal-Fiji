@@ -67,6 +67,7 @@ export function Terrain(props) {
     materialRef.current.uniforms.uTime.value = clock.getElapsedTime()
   })
 
+
   return (
     <group {...props} dispose={null}>
       <mesh 
